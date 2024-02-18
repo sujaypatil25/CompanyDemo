@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 @Getter
@@ -42,7 +43,7 @@ public class CompanyDao {
     public boolean updateCompany(Integer compId, Company newCompany) {
         boolean updated=false;
         for(Company company: companyList){
-            if(company.getCompanyId() == compId){
+            if(Objects.equals(company.getCompanyId(), compId)){
                 company.setCompanyName(newCompany.getCompanyName());
                 company.setCompanyLocation(newCompany.getCompanyLocation());
                 updated=true;
