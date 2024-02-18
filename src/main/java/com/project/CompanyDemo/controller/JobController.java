@@ -1,5 +1,6 @@
 package com.project.CompanyDemo.controller;
 
+import com.project.CompanyDemo.entity.Company;
 import com.project.CompanyDemo.entity.Job;
 import com.project.CompanyDemo.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +47,7 @@ public class JobController {
     }
 
     @GetMapping("{jobId}")
-    public ResponseEntity<Job> getJobById(@PathVariable Integer jobId){
-        Job jobById=jobService.getJobById(jobId);
-        if(jobById!=null)
-            return new ResponseEntity<>(jobById, HttpStatus.OK);
-        else
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<Job> findJobById(@PathVariable Integer jobId){
+        return new ResponseEntity<>(jobService.findJobById(jobId),HttpStatus.OK);
     }
 }

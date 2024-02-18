@@ -12,5 +12,7 @@ public interface ICompanyService {
 
     boolean deleteCompany(Integer companyId);
 
+    Company findCompanyById(Integer companyId);
+
     boolean updateCompany(Integer companyId, Company company);
 }

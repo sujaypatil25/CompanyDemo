@@ -1,40 +1,52 @@
 package com.project.CompanyDemo.service;
 
-import com.project.CompanyDemo.dao.JobDao;
+import com.project.CompanyDemo.dao.IJobRepo;
 import com.project.CompanyDemo.entity.Job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class JobService implements IJobService{
     @Autowired
-    JobDao jobDao;
+    IJobRepo jobDao;
 
     @Override
     public List<Job> getJob() {
-        return jobDao.getJobList();
+        return jobDao.findAll();
     }
 
     @Override
     public void addJob(Job job) {
-        jobDao.addJob(job);
+        jobDao.save(job);
     }
 
     @Override
     public boolean deleteJob(Integer jobId) {
-        return jobDao.deleteJob(jobId);
+        if (jobDao.findById(jobId).isPresent()) {
+            jobDao.deleteById(jobId);
+            return true;
+        } else
+            return false;
+    }
+
+    @Override
+    public Job findJobById(Integer jobId) {
+        Job job = jobDao.findById(jobId).orElse(null);
+        if (job != null)
+            return job;
+        else
+            return null;
     }
 
     @Override
     public boolean updateJob(Integer jobId, Job job) {
-        return jobDao.updateJob(jobId,job);
-    }
-
-    @Override
-    public Job getJobById(Integer jobId) {
-        return jobDao.getJobById(jobId);
+        Job newJob = findJobById(jobId);
+        if (newJob != null) {
+            jobDao.save(job);
+            return true;
+        } else
+            return false;
     }
 }

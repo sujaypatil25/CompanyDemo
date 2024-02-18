@@ -1,5 +1,7 @@
 package com.project.CompanyDemo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,10 +15,15 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
 public class Company {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer companyId;
     private String companyName;
     private String companyLocation;
 
-    private List<Integer> jobIdList;
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
+    private List<Job> jobList;
 }

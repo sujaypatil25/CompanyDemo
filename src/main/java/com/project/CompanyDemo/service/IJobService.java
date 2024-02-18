@@ -16,5 +16,5 @@ public interface IJobService {
 
     boolean updateJob(Integer jobId, Job job);
 
-    Job getJobById(Integer jobId);
+    Job findJobById(Integer jobId);
 }

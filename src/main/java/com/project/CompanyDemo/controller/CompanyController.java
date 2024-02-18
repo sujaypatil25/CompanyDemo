@@ -36,6 +36,11 @@ public class CompanyController {
             return new ResponseEntity<>("No Company with id: " + companyId, HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("{companyId}")
+    public ResponseEntity<Company> findCompanyById(@PathVariable Integer companyId){
+        return new ResponseEntity<>(companyService.findCompanyById(companyId),HttpStatus.OK);
+    }
+
     @PutMapping("{companyId}")
     public ResponseEntity<String> updateCompany(@PathVariable Integer companyId, @RequestBody Company company){
         if(companyService.updateCompany(companyId, company))
