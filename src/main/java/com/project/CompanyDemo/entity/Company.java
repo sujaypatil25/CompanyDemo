@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,4 +17,6 @@ public class Company {
     private Integer companyId;
     private String companyName;
     private String companyLocation;
+
+    private List<Integer> jobIdList;
 }

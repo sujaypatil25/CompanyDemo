@@ -18,7 +18,7 @@ public class CompanyController {
 
     @GetMapping
     public ResponseEntity<List<Company>> getCompanies() {
-        return new ResponseEntity<>(companyService.getCompanies(), HttpStatus.OK);
+        return new ResponseEntity<>(companyService.getCompany(), HttpStatus.OK);
     }
 
     @PostMapping()

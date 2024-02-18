@@ -12,14 +12,22 @@ import java.util.List;
 @Getter
 public class CompanyDao {
 
+//
+//    List<Company> companyList = new ArrayList<>(Arrays.asList(new Company(1, "Sapiens", "Bangalore"),
+//            new Company(2, "Allstate", "Pune"),
+//            new Company(3, "Google", "New York"),
+//            new Company(4, "Amazon", "Hyderabad"),
+//            new Company(5, "Facebook", "London")));
 
-    List<Company> companyList = new ArrayList<>(Arrays.asList(new Company(1, "Sapiens", "Bangalore"),
-            new Company(2, "Allstate", "Pune"),
-            new Company(3, "Google", "New York"),
-            new Company(4, "Amazon", "Hyderabad"),
-            new Company(5, "Facebook", "London")));
+    List<Company> companyList = new ArrayList<>(Arrays.asList(
+            new Company(1, "Sapiens", "Bangalore",new ArrayList<>(Arrays.asList(1,3,5))),
+            new Company(2, "Allstate", "Pune",new ArrayList<>(Arrays.asList(1,2,5))),
+            new Company(3, "Google", "New York",new ArrayList<>(Arrays.asList(1,3,4))),
+            new Company(4, "Amazon", "Hyderabad",new ArrayList<>(Arrays.asList(1,5))),
+            new Company(5, "Facebook", "London",new ArrayList<>(Arrays.asList(1,3)))));
 
     public List<Company> getCompanyList() {
+        List<Company> companyJobList = new ArrayList<>();
         return companyList;
     }
 
