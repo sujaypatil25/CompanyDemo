@@ -14,7 +14,7 @@ public class CompanyService implements ICompanyService {
     CompanyDao companyDao;
 
     @Override
-    public List<Company> getCompanies() {
+    public List<Company> getCompany() {
         return companyDao.getCompanyList();
     }
 

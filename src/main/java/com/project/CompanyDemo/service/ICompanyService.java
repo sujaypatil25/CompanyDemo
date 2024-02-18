@@ -6,7 +6,7 @@ import com.project.CompanyDemo.entity.Company;
 import java.util.List;
 
 public interface ICompanyService {
-    List<Company> getCompanies();
+    List<Company> getCompany();
 
     void addCompany(Company company);
 
