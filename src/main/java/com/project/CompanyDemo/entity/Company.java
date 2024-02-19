@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -18,12 +17,12 @@ import java.util.List;
 @Entity
 public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer companyId;
     private String companyName;
     private String companyLocation;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "company")
-    private List<Job> jobList;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "company")
+//    private List<Job> jobList;
 }

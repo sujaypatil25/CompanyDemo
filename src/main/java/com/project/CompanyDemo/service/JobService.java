@@ -44,7 +44,9 @@ public class JobService implements IJobService{
     public boolean updateJob(Integer jobId, Job job) {
         Job newJob = findJobById(jobId);
         if (newJob != null) {
-            jobDao.save(job);
+            newJob.setJobName(job.getJobName());
+            newJob.setJobSalary(job.getJobSalary());
+            jobDao.save(newJob);
             return true;
         } else
             return false;

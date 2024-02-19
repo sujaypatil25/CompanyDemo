@@ -45,7 +45,9 @@ public class CompanyService implements ICompanyService {
     public boolean updateCompany(Integer companyId, Company company) {
         Company newCompany = findCompanyById(companyId);
         if (newCompany != null) {
-            companyDao.save(company);
+            newCompany.setCompanyName(company.getCompanyName());
+            newCompany.setCompanyLocation(company.getCompanyLocation());
+            companyDao.save(newCompany);
             return true;
         } else
             return false;

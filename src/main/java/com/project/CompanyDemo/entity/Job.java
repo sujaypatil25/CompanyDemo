@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -19,6 +18,7 @@ public class Job {
     private String JobName;
     private Integer JobSalary;
 
-    @ManyToOne()
-    private Company company;
+//    @ManyToOne
+//    //@JoinColumn(name = "companyId")
+//    private Company company;
 }
